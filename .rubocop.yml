@@ -1,0 +1,101 @@
+require: rubocop-rspec
+
+inherit_gem:
+  bixby: bixby_default.yml
+
+inherit_from: .rubocop_todo.yml
+
+Rails:
+  Enabled: true
+
+AllCops:
+  TargetRubyVersion: 2.7
+  DisplayCopNames: true
+  Exclude:
+  - '.internal_test_app/**/*'
+  - 'db/**/*'
+  - 'geoblacklight.gemspec'
+  - 'Gemfile'
+  - 'lib/generators/geoblacklight/templates/**/*'
+  - 'tmp/**/*'
+  - 'vendor/**/*'
+
+Layout/DotPosition:
+  Description: Checks the position of the dot in multi-line method calls.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#consistent-multi-line-chains
+  Enabled: true
+  EnforcedStyle: leading
+  SupportedStyles:
+  - leading
+  - trailing
+
+Layout/LineLength:
+  Max: 115
+  Exclude:
+  - 'app/models/concerns/geoblacklight/spatial_search_behavior.rb'
+  - 'bin/coverage.rb'
+  - 'lib/generators/geoblacklight/install_generator.rb'
+  - 'lib/tasks/geoblacklight.rake'
+  - 'Rakefile'
+  - 'spec/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'lib/tasks/geoblacklight.rake'
+    - 'Rakefile'
+    - 'spec/**/*'
+
+Metrics/MethodLength:
+  Max: 16
+  Exclude:
+    - 'lib/geoblacklight/metadata/base.rb'
+
+Metrics/ModuleLength:
+  Exclude:
+  - 'app/helpers/geoblacklight_helper.rb'
+
+# TODO: Add top-level class and module documentation.
+Style/Documentation:
+  Enabled: false
+
+# Overrides method in blacklight. Must use method name.
+Naming/PredicateName:
+  Exclude:
+    - 'lib/geoblacklight/view_helper_override.rb'
+
+# geoblacklight references in solr_document_spec are
+# difficult to mock because of the use of 'method_missing'.
+# https://relishapp.com/rspec/rspec-mocks/docs/verifying-doubles/dynamic-classes
+RSpec/AnyInstance:
+  Exclude:
+    - 'spec/models/concerns/geoblacklight/solr_document_spec.rb'
+    - 'spec/helpers/geoblacklight_helper_spec.rb'
+    - 'spec/models/concerns/geoblacklight/solr_document/finder_spec.rb'
+    - 'spec/features/download_layer_spec.rb'
+
+# Rubocop bug causes view specs to fail.
+#  https://github.com/nevir/rubocop-rspec/issues/47
+RSpec/DescribeClass:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/VerifiedDoubles:
+  Exclude:
+    - 'spec/lib/geoblacklight/download/hgl_download_spec.rb'
+    - 'spec/lib/geoblacklight/document_presenter_spec.rb'
+
+Style/SignalException:
+  EnforcedStyle: semantic
+
+Style/StringLiterals:
+  Description: Checks if uses of quotes match the configured preference.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#consistent-string-literals
+  Enabled: true
+  EnforcedStyle: single_quotes
+
+Style/SafeNavigation:
+  Exclude:
+    - 'app/models/concerns/geoblacklight/solr_document/arcgis.rb'
+    - 'app/models/concerns/geoblacklight/solr_document.rb'

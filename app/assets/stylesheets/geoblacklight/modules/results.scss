@@ -1,0 +1,65 @@
+[data-map="index"] {
+  height: 480px;
+}
+
+.more-info-area {
+  max-height: 100px;
+  overflow:hidden;
+  padding-left: 2ch;
+}
+
+.documents-list {
+  @extend .mb-4;
+}
+
+.index-split {
+  .index_title {
+    display: flex;
+    font-size: 1rem;
+    padding-right: 0;
+  }
+
+  .document-counter {
+    @extend .pr-1;
+  }
+
+  .caret-toggle {
+    @include caret('right');
+    padding-left: 0;
+    width: 28px;
+
+    &[aria-expanded="true"] {
+      @include caret('down');
+    }
+  }
+
+  .status-icons {
+    cursor: pointer;
+    margin-left: 0.5rem;
+    margin-top: -3px;
+    white-space: nowrap;
+    z-index: 2; // get the icons above the toggle
+  }
+}
+
+#main-container {
+  .category-block {
+    min-height: 240px;
+
+    .category-icon {
+      font-size: 6em;
+    }
+  }
+
+  [data-map="index"] {
+    height: 400px;
+
+    .leaflet-control-container {
+      .search-control {
+        a {
+          color: $white;
+        }
+      }
+    }
+  }
+}
