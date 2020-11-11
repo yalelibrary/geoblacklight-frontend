@@ -21,6 +21,7 @@ jobs:
     executor: ruby/default
     steps:
       - checkout
+      - ruby/bundle-install
       - run:
           name: Which bundler?
           command: bundle -v
@@ -30,4 +31,3 @@ jobs:
       - run:
           name: "Run Rspec"
           command: bundle exec rspec
-      - ruby/bundle-install
