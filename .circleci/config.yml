@@ -30,5 +30,4 @@ jobs:
           command: echo $DOCKERHUB_MYUSER
       - run:
           name: "Run Rspec test"
-          #command: bundle exec rspec
-          command: rspec
+          command: bundle exec rspec
