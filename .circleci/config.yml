@@ -22,8 +22,7 @@ jobs:
     executor: ruby/default
     steps:
       - checkout
-      #- ruby/bundle-install
-      - bundle-install/bundle-install
+      - ruby/bundle-install
       - run:
           name: Which bundler?
           command: bundle -v
