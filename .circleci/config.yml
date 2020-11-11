@@ -1,11 +1,29 @@
 version: 2.1
 
+workflows:
+  gbl-workflow:
+    jobs:
+      - run-tests:
+          context:
+            - yul-gbl
+
 orbs:
   ruby: circleci/ruby@0.1.2 
 
 jobs:
-  run-tests:
   build:
+    docker:
+      #- image: circleci/ruby:2.5.7
+      - image: circleci/ruby:2.6.3
+        auth:
+          username: $DOCKERHUB_MYUSER  # can specify string literal values
+          password: $DOCKERHUB_MYPASSWORD  # or project environment variable reference
+    executor: ruby/default
+    steps:
+      - checkout
+      - ruby/bundle-install
+      
+  run-tests:
     docker:
       #- image: circleci/ruby:2.5.7
       - image: circleci/ruby:2.6.3
@@ -25,10 +43,3 @@ jobs:
       - run:
           name: "Run Rspec test"
           command: bundle exec rspec
-
-workflows:
-  gbl-workflow:
-    jobs:
-      - run-tests:
-          context:
-            - yul-gbl
