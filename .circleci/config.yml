@@ -11,7 +11,8 @@ orbs:
   ruby: circleci/ruby@0.1.2 
 
 jobs:
-  build:
+  run-tests:
+  #build:
     docker:
       - image: circleci/ruby:2.5.1p57
         auth:
