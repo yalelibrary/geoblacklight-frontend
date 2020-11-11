@@ -29,5 +29,5 @@ jobs:
           name: "echo environment variables from yul-gbl context"
           command: echo $DOCKERHUB_MYUSER
       - run:
-          name: "Run Rspec"
+          name: "Run Rspec test"
           command: bundle exec rspec
