@@ -1,18 +1,11 @@
 version: 2.1
 
-workflows:
-  gbl-workflow:
-    jobs:
-      - run-tests:
-          context:
-            - yul-gbl
-
 orbs:
   ruby: circleci/ruby@0.1.2 
 
 jobs:
   run-tests:
-  #build:
+  build:
     docker:
       #- image: circleci/ruby:2.5.7
       - image: circleci/ruby:2.6.3
@@ -32,3 +25,10 @@ jobs:
       - run:
           name: "Run Rspec test"
           command: bundle exec rspec
+
+workflows:
+  gbl-workflow:
+    jobs:
+      - run-tests:
+          context:
+            - yul-gbl
