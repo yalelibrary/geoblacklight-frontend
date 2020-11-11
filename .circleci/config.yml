@@ -30,4 +30,4 @@ jobs:
       - run:
           name: "Run Rspec"
           command: bundle exec rspec
-      #- ruby/bundle-install
+      - ruby/bundle-install
