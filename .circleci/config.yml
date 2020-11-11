@@ -11,18 +11,6 @@ orbs:
   ruby: circleci/ruby@0.1.2 
 
 jobs:
-  build:
-    docker:
-      #- image: circleci/ruby:2.5.7
-      - image: circleci/ruby:2.6.3
-        auth:
-          username: $DOCKERHUB_MYUSER  # can specify string literal values
-          password: $DOCKERHUB_MYPASSWORD  # or project environment variable reference
-    executor: ruby/default
-    steps:
-      - checkout
-      - ruby/bundle-install
-
   run-tests:
     docker:
       #- image: circleci/ruby:2.5.7
@@ -33,7 +21,7 @@ jobs:
     executor: ruby/default
     steps:
       - checkout
-      #- ruby/bundle-install
+      - ruby/bundle-install
       - run:
           name: Which bundler?
           command: bundle -v
