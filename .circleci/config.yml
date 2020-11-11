@@ -22,7 +22,7 @@ jobs:
     steps:
       - checkout
       - ruby/bundle-install
-      
+
   run-tests:
     docker:
       #- image: circleci/ruby:2.5.7
@@ -33,7 +33,7 @@ jobs:
     executor: ruby/default
     steps:
       - checkout
-      - ruby/bundle-install
+      #- ruby/bundle-install
       - run:
           name: Which bundler?
           command: bundle -v
