@@ -1,4 +1,12 @@
 version: 2.1
+
+workflows:
+  my-workflow:
+    jobs:
+      - run-tests:
+          context:
+            - yul-gbl
+
 orbs:
   ruby: circleci/ruby@0.1.2 
 
@@ -15,5 +23,7 @@ jobs:
       - run:
           name: Which bundler?
           command: bundle -v
-      - ruby/bundle-install
-
+      - run:
+          name: "echo environment variables from yul-gbl context"
+          command: echo $DOCKERHUB_MYUSER
+      #- ruby/bundle-install
