@@ -1,0 +1,15 @@
+/*
+ * This is a Yale customized manifest file that'll be compiled into application.css, which will include all the files listed below.
+ *
+ */
+
+@import 'helpers/breakpoints';
+@import 'helpers/buttons';
+@import 'theme/colors';
+@import 'theme/typography';
+@import 'changes/header';
+@import 'changes/footer';
+/*@import 'changes/facets';
+@import 'changes/main';*/
+@import 'changes/sticky_map';
+@import 'changes/miscellaneous';
