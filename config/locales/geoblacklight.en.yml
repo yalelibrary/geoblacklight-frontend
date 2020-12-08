@@ -21,7 +21,7 @@ en:
       export_kmz_link: 'KMZ'
       export_geojson_link: 'GeoJSON'
     home:
-      headline: 'Yale University Library Map & Geographic Data Collection'
+      headline: 'Map & Geographic Data Collection'
       search_heading: 'Find the maps and data you need'
       category_heading: 'Find by...'
       map_heading: 'Find by location'
