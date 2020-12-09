@@ -47,8 +47,7 @@ DEFAULT MOBILE STYLING
   display:inline;
   margin-top: -1px;
   margin-left: 10px;
-  /*height: calc(100% + 15px);*/
-  height: 144px;
+  height: calc(100% + 15px);
   width: content-box;
   padding: 12px 0 12px 5.5px;
   background-color: $white;
@@ -56,20 +55,6 @@ DEFAULT MOBILE STYLING
 }
 
 .catalog_startOverLink.btn.btn-primary {
-/*
-  display:inline;
-  margin-top: -1px;
-  margin-left: 10px;
-  height: calc(100% + 5px);
-  width: content-box;
-  padding: 12px 0 12px 5.5px;
-  background-color: $white;
-  margin-right: 10px;
-
-color: #212529;
-background-color: #007bff;
-border-color: #007bff;
-*/
     display: inline-block;
     font-weight: 400;
     color: white;
@@ -79,7 +64,7 @@ border-color: #007bff;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-color: #007bff;
+    background-color: #286dc0;
     border-color: red;
     border: 1px solid
     transparent;
@@ -94,9 +79,9 @@ border-color: #007bff;
     border-color: #007bff;
     padding: 8px 10px 5px 10px;
     height: 44px;
-    margin-top: 3.9px;
-  margin-left: 10px;
-  width: content-box;
+    margin-top: 0px;
+    margin-left: 10px;
+    width: content-box;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -212,7 +197,8 @@ border-color: #007bff;
       /*background-color: theme-color("secondary");*/
       background-color: rgba(0, 0, 0, 0.15);
       border-color: theme-color("secondary");
-      box-shadow: none;
+      box-shadow: 0px 0px 0px 1px #888888;
+      border-radius: 0.25rem;
     }
   }
 
@@ -233,8 +219,7 @@ border-color: #007bff;
     font-weight: bold;
     padding-left: $spacer / 2;
     padding-bottom: 0px;
-     padding-top: $spacer / 2;
-   /* padding: 2px 5px 2px 2.5px;*/
+    padding-top: $spacer / 2;
     height: calc(100% + 9px);
 
     &:hover {
