@@ -15,6 +15,16 @@ a {
   border-radius: 0;
 }
 
+.btn.btn-outline-secondary {
+  color: $dark_grey;
+  border-color: $medium_grey;
+  border-radius: 5px;
+  margin-top: 4.5px;
+  margin-left: 10px;
+  padding-top: 9px;
+  padding-bottom: 10px;
+}
+
 .btn-primary {
   color: $yale_blue;
   background-color: $white;
@@ -39,7 +49,8 @@ a {
 }
 
 .card-header {
-  background-color: $white !important;
+  background-color: rgba(0,0,0,0.03) !important;
+  margin-bottom: 8px;
 }
 
 #citationLink {
@@ -51,9 +62,12 @@ a {
 }
 
 #facets .facet-field-heading .btn {
-  border-top: 1px solid $medium_grey;
+  border: 1px solid $medium_grey;
   color: $medium_grey;
   padding-top: 1.25rem !important;
+  font-size: 0.8rem;
+  font-weight: $headings-font-weight;
+  margin-bottom: 0;
 }
 
 #facets .card {
@@ -65,6 +79,8 @@ a {
   text-transform: uppercase;
   color: $medium_grey;
   font-size: 1rem;
+  height: 30px;
+   width: 100%;
 }
 
 .page-link {
