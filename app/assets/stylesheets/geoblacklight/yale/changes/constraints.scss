@@ -4,7 +4,7 @@ DEFAULT MOBILE STYLING
 
 .btn-group.applied-filter.constraint {
   display: inline-block;
-  margin: 5px 0 0 0;
+  margin: -1px 0 0 0;
   padding: 0 0 5.5px 0;
   text-justify: auto;
   float: left;
@@ -210,7 +210,7 @@ border-color: #007bff;
 
     &:hover, &:active {
       /*background-color: theme-color("secondary");*/
-      background-color: rgba(0, 0, 0, 0.03);
+      background-color: rgba(0, 0, 0, 0.15);
       border-color: theme-color("secondary");
       box-shadow: none;
     }
