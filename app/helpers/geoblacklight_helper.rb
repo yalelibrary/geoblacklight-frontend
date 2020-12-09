@@ -205,7 +205,7 @@ module GeoblacklightHelper
   # @return [String]
   def geoblacklight_basemap
     blacklight_config.basemap_provider = 'openstreetmapHot'
-    blacklight_config.basemap_provider || 'positron'
+    #blacklight_config.basemap_provider || 'positron'
   end
 
   ##
