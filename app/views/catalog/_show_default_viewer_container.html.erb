@@ -8,5 +8,22 @@
 
     <%= content_tag :div, id: 'map', aria: { label: t('geoblacklight.map.label') }, data: { map: 'item', protocol: document.viewer_protocol.camelize, url: document.viewer_endpoint, 'layer-id' => document.wxs_identifier, 'map-bbox' => document.bounding_box_as_wsen, 'catalog-path'=> search_catalog_path, available: document_available?, inspect: show_attribute_table?, basemap: geoblacklight_basemap, leaflet_options: leaflet_options } do %>
     <% end %>
+    </p>
+
+    <%# If there is oid, display IIIF UV%>
+    <% if get_oid != nil %>
+        <div class="uv-container">
+    		<iframe
+        		class="universal-viewer-iframe"
+        		title="Universal Viewer"
+        		src="<%= request&.base_url %>/uv/uv.html#?manifest=https://collections.library.yale.edu/manifests/<%= get_oid %>"
+        		width="950"
+        		height="668"
+        		allowfullscreen
+        		frameborder="0">
+    		</iframe>
+    	</div>
+	    </br>
+    <% end %>
   </div>
 </div>
