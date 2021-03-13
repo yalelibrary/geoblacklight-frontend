@@ -267,12 +267,47 @@ module GeoblacklightHelper
   ##
   # Renders a reference url for a document
   # @param [Hash] document, field_name
+  # Quicksearch url
   def render_references_url(args)
     return unless args[:document]&.references&.url
     link_to(
-      args[:document].references.url.endpoint,
-      args[:document].references.url.endpoint
+      #args[:document].references.url.endpoint,
+      #args[:document].references.url.endpoint,
+      args[:document].references.url.endpoint.split(',').first,
+      args[:document].references.url.endpoint.split(',').first,
+      :target => "_new"
     )
+  end
+
+  # Digital Collection url
+  def render_references_url_dc(args)
+    return unless args[:document]&.references&.url
+
+    if @document.references.url.endpoint.include?("https://collections.library.yale.edu/catalog")
+      link_to(
+        args[:document].references.url.endpoint.split(',').second,
+        args[:document].references.url.endpoint.split(',').second,
+        :target => "_new"
+      ) 
+    else
+        "No Digital Collection record"    
+    end
+  end
+  
+  # Parse to get oid from GBLJson doc that built in GBL backend app/services/metadata_cloud_service.rb
+  def get_oid
+    # No reference link element in GBLJson
+    return nil if !@document.inspect.include?("https://collections.library.yale.edu/catalog")
+    
+    # There is oid. Get DC link, e.g. https://collections.library.yale.edu/catalog/16387378
+    dc_link = @document.references.url.endpoint.split(',').second
+    
+    # Get last number with "/", e.g. /16387378
+    oid = dc_link.match(/\/(\d{1,})$/).to_s
+   
+    # Remove forward slash "/"" to get oid, e.g. 16387378
+    oid = oid[1..-1].to_s
+    return oid
   end
 
   ## Returns the icon used based off a Settings strategy
