@@ -16,7 +16,7 @@
     		<iframe
         		class="universal-viewer-iframe"
         		title="Universal Viewer"
-        		src="<%= request&.base_url %>/uv/uv.html#?manifest=https://collections.library.yale.edu/manifests/<%= get_oid %>"
+        		src="<%= request&.base_url %>/uv/uv.html#?manifest=https://<%= ENV['DC_HOST'] %>/manifests/<%= get_oid %>"
         		width="950"
         		height="668"
         		allowfullscreen

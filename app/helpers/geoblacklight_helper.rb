@@ -283,7 +283,8 @@ module GeoblacklightHelper
   def render_references_url_dc(args)
     return unless args[:document]&.references&.url
 
-    if @document.references.url.endpoint.include?("https://collections.library.yale.edu/catalog")
+    #if @document.references.url.endpoint.include?("https://collections.library.yale.edu/catalog")
+    if @document.references.url.endpoint.include?("https://#{ENV['DC_HOST']}/catalog")
       link_to(
         args[:document].references.url.endpoint.split(',').second,
         args[:document].references.url.endpoint.split(',').second,
@@ -297,7 +298,7 @@ module GeoblacklightHelper
   # Parse to get oid from GBLJson doc that built in GBL backend app/services/metadata_cloud_service.rb
   def get_oid
     # No reference link element in GBLJson
-    return nil if !@document.inspect.include?("https://collections.library.yale.edu/catalog")
+    return nil if !@document.inspect.include?("https://#{ENV['DC_HOST']}/catalog")
     
     # There is oid. Get DC link, e.g. https://collections.library.yale.edu/catalog/16387378
     dc_link = @document.references.url.endpoint.split(',').second
