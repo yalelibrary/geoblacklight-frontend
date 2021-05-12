@@ -49,7 +49,7 @@ DEFAULT MOBILE STYLING
   display: inline-block;
 }
 
-.nav-link-title {
+.nav-link-title {  
   margin-bottom: 0px;
 }
 
@@ -88,7 +88,7 @@ DEFAULT MOBILE STYLING
 
 .secondary-nav a {
   color: $white !important;
-  font-size: 16px;
+  font-size: 12px;
   font-family: $yale_new_roman, 'Times New Roman', Times, serif !important;
 }
 
@@ -192,6 +192,7 @@ DEFAULT MOBILE STYLING
 
   .nav-link-title > a {
     display: inline-block;
+    font-size: 11px;
   }
 
   .secondary-nav .dropdown-menu > li {
