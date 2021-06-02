@@ -80,7 +80,19 @@ module Geoblacklight
       # @return [String] returned metadata string
       def metadata
         response_body = retrieve_metadata
-        metadata_class.new(response_body)
+        # YJ add transforming MARCXML to MODS on 05/29/2021 10am       
+        #document = Nokogiri::XML(open("https://libapp-test.library.yale.edu/VoySearch/GetBibMarc?bibid=1036525"))
+        document  = Nokogiri::XML("#{response_body}")
+        
+        #template = Nokogiri::XSLT(File.read('MARC21slim2MODS3-7.xsl'))
+        template = Nokogiri::XSLT(File.read("#{ENV['MARCXML_TO_MODS_TRANSFORM_XSL']}"))
+        
+        # Transform to MODS
+        transformed_document = template.transform(document)
+      
+        #metadata_class.new(response_body)
+        metadata_class.new(transformed_document.to_s)
+       
       end
 
       ##
