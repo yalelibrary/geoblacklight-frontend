@@ -6,12 +6,7 @@
       <% document.references.shown_metadata.each do |metadata| %>
         <li role="presentation" class="nav-item">
           <a class="pill-metadata nav-link <%= first_metadata?(document, metadata) ? 'active' : nil %>"
-             href="#<%= metadata.type %>"
-             aria-controls="<%= metadata.type %>"
-             role="tab"
-             data-toggle="pill"
-             data-ref-endpoint="<%= metadata.endpoint %>"
-             data-ref-download="#btn-metadata-download"><%= formatted_name_reference(metadata.type) %></a>
+             href="<%= document.references.mods.endpoint %>">MARCXML</a>
         </li>
       <% end %>
     </ul>
@@ -19,7 +14,7 @@
 
   <div class="tab-content">
     <% document.references.shown_metadata.each do |metadata| %>
-      <div role="tabpanel" class="tab-pane<%= first_metadata?(document, metadata) ? ' active' : nil %>" id="<%= metadata.type %>">
+      <div role="tabpanel" class="tab-pane<%= first_metadata?(document, metadata) ? 'active' : nil %>" id="<%= metadata.type %>">
         <%= render_transformed_metadata(metadata) %>
       </div>
     <% end %>
