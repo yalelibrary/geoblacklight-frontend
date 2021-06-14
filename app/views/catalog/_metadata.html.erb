@@ -6,7 +6,7 @@
       <% document.references.shown_metadata.each do |metadata| %>
         <li role="presentation" class="nav-item">
           <a class="pill-metadata nav-link <%= first_metadata?(document, metadata) ? 'active' : nil %>"
-             href="<%= document.references.mods.endpoint %>">MARCXML</a>
+             href="<%= document.references.mods.endpoint %>">View Metadata MARCXML</a>
         </li>
       <% end %>
     </ul>
