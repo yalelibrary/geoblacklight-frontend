@@ -70,7 +70,7 @@ en:
       browse_all: "Browse all %{count} records..."
     metadata:
       toggle_summary: 'Toggle summary'
-      view_metadata: 'View Metadata'
+      view_metadata: 'View Metadata MODS'
       more_details: 'More details at'
       metadata_error: 'The metadata view for selected schema is not available'
       metadata_trace: 'Please select another metadata view. Alternately, try downloading the file or reaching out to the holding institution.'
