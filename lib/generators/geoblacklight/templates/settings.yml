@@ -42,7 +42,6 @@ FIELDS:
 
 # Institution deployed at
 INSTITUTION: 'Yale'
-#INSTITUTION: 'Stanford'
 
 # Metadata shown in tool panel
 METADATA_SHOWN:

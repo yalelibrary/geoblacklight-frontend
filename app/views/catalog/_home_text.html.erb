@@ -7,8 +7,17 @@
           <div class='category-icon'>
             <%= geoblacklight_icon('home') %>
           </div>
+<%
+=begin
+Commented out by YJ on Feb 4, 2022 7:27 AM 
+Remove Institution, if no other institutions
+%>
           <%= content_tag :h5, t('geoblacklight.home.institution') %>
           <%= render_facet_tags [Settings.FIELDS.PROVENANCE] %>
+<%
+=end %>
+          <%= content_tag :h5, t('geoblacklight.home.language') %>
+          <%= render_facet_tags [Settings.FIELDS.LANGUAGE] %>
         </div>
         <div class='category-block col-sm'>
           <div class='category-icon'>

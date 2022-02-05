@@ -291,7 +291,7 @@ module GeoblacklightHelper
         :target => "_new"
       ) 
     else
-        "No Digital Collection record"    
+        "No Digital Collections record"    
     end
   end
   

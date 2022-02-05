@@ -1,4 +1,9 @@
 <ul class="navbar-nav">
+<%
+=begin 
+Commented out by YJ on Feb 4, 2022 7:40 AM 
+Remove Sign-in in phase 1, since it is unrelated to any features in the system for phase 1. 
+%>
   <% if has_user_authentication_provider? %>
     <% if current_user %>
       <li class="nav-item">
@@ -10,7 +15,8 @@
       </li>
     <% end %>
   <% end %>
-
+<%
+=end %>
   <%= render_nav_actions do |config, action|%>
     <li class="nav-item"><%= action %></li>
   <% end %>
