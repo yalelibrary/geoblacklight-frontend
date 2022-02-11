@@ -19,8 +19,10 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
   spec.required_rubygems_version = '>= 2.5.7'
 
-  spec.add_dependency 'rails', '>= 5.3', '< 6.1'
-  spec.add_dependency 'blacklight', '~> 7.0'
+  #spec.add_dependency 'rails', '>= 5.3', '< 6.1'
+  #spec.add_dependency 'blacklight', '~> 7.0'
+  spec.add_dependency 'rails', '>= 5.3', '< 7.0.2'
+  spec.add_dependency 'blacklight', '~> 7.22'
   spec.add_dependency 'config'
   spec.add_dependency 'faraday', '~> 1.0'
   spec.add_dependency 'faraday_middleware', '~> 1.0.0.rc1'
@@ -29,8 +31,9 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'geo_combine', '~> 0.4'
   spec.add_dependency 'mime-types'
   spec.add_dependency 'handlebars_assets'
-  spec.add_dependency 'webpacker', '~> 5.0'
-
+  #spec.add_dependency 'webpacker', '~> 5.0'
+  spec.add_dependency 'webpacker', '~> 6.0.0.rc.6'
+  
   spec.add_development_dependency 'solr_wrapper'
   spec.add_development_dependency 'rails-controller-testing'
   spec.add_development_dependency 'rspec-rails'
