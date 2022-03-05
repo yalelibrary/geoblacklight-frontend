@@ -5,6 +5,8 @@ require 'config'
 require 'faraday'
 require 'faraday_middleware'
 require 'geoblacklight/version'
+require 'geoblacklight/geoblacklight_helper'
+require 'geoblacklight/carto_helper'
 require 'nokogiri'
 require 'mime/types'
 require 'handlebars_assets'
@@ -15,6 +17,7 @@ module Geoblacklight
     Blacklight::Configuration.default_values[:view].delete_field('list')
     # GeoblacklightHelper is needed by all helpers, so we inject it
     # into action view base here.
+   
     initializer 'geoblacklight.helpers' do
       ActionView::Base.send :include, GeoblacklightHelper
       ActionView::Base.send :include, CartoHelper
