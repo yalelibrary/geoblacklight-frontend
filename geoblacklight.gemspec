@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   #spec.add_dependency 'rails', '>= 5.3', '< 6.1'
   #spec.add_dependency 'blacklight', '~> 7.0'
   spec.add_dependency 'rails', '>= 5.3', '< 7.0.2'
-  spec.add_dependency 'blacklight', '~> 7.22'
+  spec.add_dependency 'blacklight', '~> 7.24'
   spec.add_dependency 'config'
   spec.add_dependency 'faraday', '~> 1.0'
   spec.add_dependency 'faraday_middleware', '~> 1.0.0.rc1'
