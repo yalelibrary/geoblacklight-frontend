@@ -21,7 +21,7 @@
 
   var GeoBlacklight = L.Class.extend({
     statics: {
-      __version__: '2.0.0',
+      __version__: '4.0.0.pre.rc1',
 
       debounce: function(fn, delay) {
         var timeout = null;

@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-gem 'blacklight', '~> 7.0'
+gem 'blacklight', '~> 7.24'
 gem 'geoblacklight', '~> 4.0.0.pre.rc1'
 gem 'webpacker'
 
