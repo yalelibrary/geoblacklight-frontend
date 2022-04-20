@@ -21,7 +21,7 @@ en:
       export_kmz_link: 'KMZ'
       export_geojson_link: 'GeoJSON'
     home:
-      headline: 'Map & Geographic Data'
+      headline: 'Maps and Geographic Data'
       search_heading: 'Find the maps and data you need'
       category_heading: 'Find by...'
       map_heading: 'Find by location'
