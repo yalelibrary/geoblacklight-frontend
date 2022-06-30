@@ -14,16 +14,16 @@
     <% if get_oid != nil %>
         <div class="uv-container">
     		<iframe
-        		class="universal-viewer-iframe"
-        		title="Universal Viewer"
-            <%# Yue changed to use DCS Universal Viewer on 06/23/2022 %>
-            <%###=
-            src="<%= request&.base_url %><%###/uv/uv.html#?manifest=https://<%#= ENV['DC_HOST'] %><%###/manifests/<%= get_oid %><%###"###%>            
-        		src="https://<%= ENV['DC_HOST'] %>/uv/uv.html#?manifest=https://<%= ENV['DC_HOST'] %>/manifests/<%= get_oid %>"
-        		width="950"
-        		height="668"
-        		allowfullscreen
-        		frameborder="0">
+            class='universal-viewer-iframe'
+            id='uv-iframe'
+            title='Universal Viewer'
+            src="<%= request&.base_url %>/uv/uv.html#?manifest=https://<%= ENV['DC_HOST'] %>/manifests/<%= get_oid %>"
+            width='950'
+            height='668'
+            allowfullscreen
+            frameborder='0'>
+
+        		
     		</iframe>
     	</div>
 	    </br>
