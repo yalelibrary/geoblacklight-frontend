@@ -206,6 +206,8 @@ module GeoblacklightHelper
   def geoblacklight_basemap
     blacklight_config.basemap_provider = 'openstreetmapHot'
     #blacklight_config.basemap_provider || 'positron'
+    #blacklight_config.basemap_provider = 'Esri_WorldStreetMap'
+    #blacklight_config.basemap_provider = 'openstreetmapStandard'
   end
 
   ##
@@ -299,7 +301,7 @@ module GeoblacklightHelper
   def get_oid
     # No reference link element in GBLJson
     return nil if !@document.inspect.include?("https://#{ENV['DC_HOST']}/catalog")
-    
+  
     # There is oid. Get DC link, e.g. https://collections.library.yale.edu/catalog/16387378
     dc_link = @document.references.url.endpoint.split(',').second
     
@@ -309,6 +311,16 @@ module GeoblacklightHelper
     # Remove forward slash "/"" to get oid, e.g. 16387378
     oid = oid[1..-1].to_s
     return oid
+  end
+
+  # Check access. Only display iiiF, if it's Public. access_value either Public or Restricted
+  def get_access
+    # No reference link element in GBLJson
+    return nil if !@document.inspect.include?("https://#{ENV['DC_HOST']}/catalog")
+  
+    # There is oid. Get DC link, e.g. https://collections.library.yale.edu/catalog/16387378
+    access_value = @document.references.url.endpoint.split(',')[2]
+    return access_value
   end
 
   ## Returns the icon used based off a Settings strategy

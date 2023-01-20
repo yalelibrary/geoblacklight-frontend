@@ -264,7 +264,7 @@ class CatalogController < ApplicationController
 
     #config.basemap_provider = 'positron'
     config.basemap_provider = 'openstreetmapHot'
-
+        
     # Configuration for autocomplete suggestor
     config.autocomplete_enabled = true
     config.autocomplete_path = 'suggest'
