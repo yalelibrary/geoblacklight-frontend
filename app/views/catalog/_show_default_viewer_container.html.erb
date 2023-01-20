@@ -11,7 +11,7 @@
     </p>
 
     <%# If there is oid, display IIIF UV%>
-    <% if get_oid != nil %>
+    <% if get_oid != nil && get_access == 'Public' %>
         <div class="uv-container">
     		<iframe
             class='universal-viewer-iframe'

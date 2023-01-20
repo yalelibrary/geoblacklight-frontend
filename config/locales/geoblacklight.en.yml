@@ -32,7 +32,7 @@ en:
       subject: 'Subject'
       version: 'GeoBlacklight version %{version}'
     tools:
-      login_to_view: 'Login to View and Download'
+      #login_to_view: 'Login to View and Download'
       open_carto: 'Open in Carto'
       open_arcgis: 'Open in ArcGIS Online'
     formats:
