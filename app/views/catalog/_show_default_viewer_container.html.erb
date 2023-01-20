@@ -10,7 +10,7 @@
     <% end %>
     </p>
 
-    <%# If there is oid, display IIIF UV%>
+    <%# If there is oid and "Access" (included/arrtibutes/label) from DCS (included/arrtibutes/items/attributes/value) is "Public", display IIIF UV%>
     <% if get_oid != nil && get_access == 'Public' %>
         <div class="uv-container">
     		<iframe
