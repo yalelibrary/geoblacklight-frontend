@@ -1,12 +1,13 @@
 <% # header bar for doc items in index view -%>
 <%= content_tag :div, class: 'documentHeader index-split row', data: { layer_id: document.id, bbox: document.bounding_box_as_wsen } do %>
+<%#= content_tag :div, class: 'documentHeader index-split row', data: { layer_id: document.id, bbox: "-127.2 005.3 -063.3 050.6,-124.85 024.73 -066.76 049.30" } do %>
   <h3 class="index_title col">
     <% counter = document_counter_with_offset(document_counter) %>
     <span class="document-counter">
       <%= t('blacklight.search.documents.counter', :counter => counter) if counter %>
     </span>
     <%= link_to_document document, counter: counter %>
-  </h3>
+  </h3> <%#= document.bounding_box_as_wsen %>
   <span class='status-icons'>
     <%= render partial: 'header_icons', locals: { document: document } %>
 

@@ -10,6 +10,7 @@
    * @param {String} bbox Space-separated string of sw-lng sw-lat ne-lng ne-lat
    * @return {L.LatLngBounds} Converted Leaflet LatLngBounds object
    */
+   
   L.bboxToBounds = function(bbox) {
     bbox = bbox.split(' ');
     if (bbox.length === 4) {
@@ -21,7 +22,7 @@
 
   var GeoBlacklight = L.Class.extend({
     statics: {
-      __version__: '4.0.0.pre.rc1',
+      __version__: '4.0.0',
 
       debounce: function(fn, delay) {
         var timeout = null;
