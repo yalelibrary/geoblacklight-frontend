@@ -70,6 +70,9 @@ module Geoblacklight
       'http://schema.org/Dataset'
     end
 
+
+=begin
+#YJ commented out for changing to allow processing multiple bounding boxes below, on 01/20/2023 9:28 PM.
     def bounding_box_as_wsen
       geom_field = fetch(Settings.FIELDS.GEOMETRY, '')
       exp = /^\s*ENVELOPE\(
@@ -83,6 +86,47 @@ module Geoblacklight
       w, e, n, s = bbox_match.captures
       "#{w} #{s} #{e} #{n}"
     end
+=end
+
+# YJ updated to include processing multiple bounding boxes on 01/20/2023 8:40 PM
+    def bounding_box_as_wsen
+      bbox_match = true
+      #geom_field = fetch(Settings.FIELDS.GEOMETRY, '')
+      
+      # e.g. geom_field = "ENVELOPE(082.22,147.32,054.53,016.36/-127.2,005.3,-063.3,050.6/-124.85,024.73,-066.76,049.30)"
+      geom_field = fetch(Settings.FIELDS.BOUNDINGBOX, '')
+      geom_field_ret = ""
+      # Get all coordinates of this record into an array  
+      geom_field = geom_field.partition('(').last.chop
+      coordinate_array = geom_field.split("/")
+      
+      # Regular expression to validate coordinate
+      exp = /^\s*
+                  \s*([-\.\d]+)\s*,
+                  \s*([-\.\d]+)\s*,
+                  \s*([-\.\d]+)\s*,
+                  \s*([-\.\d]+)\s*
+                  \s*$/x # uses 'x' option for free-spacing mode
+
+      # Validate each coordinate e.g. ENVELOPE(-127.2,005.3,-063.3,050.6)
+      for i in 0..coordinate_array.length-1         
+          bbox_match = exp.match(coordinate_array[i])
+          if !bbox_match
+             bbox_match = false
+             break
+          end   
+          each_set_coordinate = coordinate_array[i]
+          each_set_coordinate_array = each_set_coordinate.split(",")
+          # Generate the format like this: w, e, n, s = bbox_match.captures "#{w} #{s} #{e} #{n}"
+          geom_field_ret += geom_field_ret + each_set_coordinate_array[0] + ' ' + each_set_coordinate_array[3] + ' ' + each_set_coordinate_array[1] + ' ' + each_set_coordinate_array[2] + '/'
+      end
+      
+      return geom_field unless bbox_match # return as-is, not a WKT for incorrect data
+      #geom_field.gsub(/,/, ' ') # Correct data return
+      geom_field_ret = geom_field_ret.chop
+    end
+# End of YJ updates    
+
 
     def wxs_identifier
       fetch(Settings.FIELDS.WXS_IDENTIFIER, '')

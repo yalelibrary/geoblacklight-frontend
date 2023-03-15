@@ -48,11 +48,27 @@ Blacklight.onLoad(function() {
     geoblacklight = new GeoBlacklight.Viewer.Map(this, { bbox: bbox });
 
     // set hover listeners on map
+    /*
+     YJ added comments on 03/15/2023 11:57AM for display multiple bounding boxes.
+     Single bounding box: bbox=-124.85 024.73 -066.76 049.30
+     Multiple bounding box: bbox=-095.160000 041.680000 -074.320000 056.930000/-095.160000 041.680000 -074.320000 056.930000/-079.780000 044.990000 -057.110000 062.600000
+   */
     $('#content')
       .on('mouseenter', '#documents [data-layer-id]', function() {
         if($(this).data('bbox').length > 0) {
-          var bounds = L.bboxToBounds($(this).data('bbox'));
-          geoblacklight.addBoundsOverlay(bounds);
+        
+          // YJ added to display multiple bounding boxes in list records page.
+          bboxArray = $(this).data('bbox').split("/");
+          if (bboxArray.length > 1) {
+             bboxArray.forEach(function (eachBbox) {
+                var eachBounds = L.bboxToBounds(eachBbox);
+                geoblacklight.addBoundsOverlay(eachBounds);
+             });       
+          }
+          else {
+            var bounds = L.bboxToBounds($(this).data('bbox'));
+            geoblacklight.addBoundsOverlay(bounds);
+          }
         }
       })
       .on('mouseleave', '#documents [data-layer-id]', function() {
