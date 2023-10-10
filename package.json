@@ -1,4 +1,5 @@
 {
   "name": "geoblacklight",
-  "version": "4.0.0.pre.rc1"
+  //"version": "4.0.0.pre.rc1"
+  "version": "4.1.0"
 }
