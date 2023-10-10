@@ -194,10 +194,41 @@ module GeoblacklightHelper
   # div. Arguments come from Blacklight::DocumentPresenter's
   # get_field_values method
   # @param [Hash] args from get_field_values
-  def render_value_as_truncate_abstract(args)
+  def render_value_as_truncate_abstract1(args)   
     tag.div class: 'truncate-abstract' do
       Array(args[:value]).flatten.join(' ')
     end
+  end
+
+  # YJ added on 10/03/2023 3:06PM 
+  def description_display(args)
+    values = args[:value]
+    links = values.map do |value|
+      subject_heading_fields = []
+    
+     
+        subject_heading_fields << value
+        
+     
+    end
+    safe_join(links, "<br />".html_safe)
+  end
+
+  # YJ added on 10/03/2023 2:20PM 
+  def subject_heading_display(args)
+    values = args[:value]
+    links = values.map do |value|
+      subject_heading_fields = []
+      subject_heading_links = []
+      value.split(" > ").each do |subject_heading|
+        subject_heading_fields << subject_heading
+        path = subject_heading_fields.join(" > ")
+        subject_heading_links << link_to(subject_heading.to_s, search_catalog_path({ "f[Settings.FIELDS.SUBJECT][]" => path }),
+                                        { "title" => path })
+      end
+      safe_join(subject_heading_links, " > ")
+    end
+    safe_join(links, "<br />".html_safe)
   end
 
   ##

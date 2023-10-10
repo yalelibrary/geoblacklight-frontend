@@ -32,8 +32,11 @@
           "description": "Title for the layer.",
           "example": "My Title"
         },
-        "dc_description_s": {
-          "type": "string",
+        "dc_description_sm": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
           "description": "Description for the layer. *Optional*",
           "example": "My Description"
         },

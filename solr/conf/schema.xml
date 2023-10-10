@@ -156,7 +156,7 @@
   <copyField source="dct_spatial_sm"     dest="dct_spatial_tmi"     maxChars="10000"/>
   <copyField source="dct_temporal_sm"    dest="dct_temporal_tmi"    maxChars="10000"/>
   <copyField source="dc_creator_sm"      dest="dc_creator_tmi"      maxChars="1000"/>
-  <copyField source="dc_description_s"   dest="dc_description_ti"   maxChars="10000"/>
+  <copyField source="dc_description_sm"   dest="dc_description_tmi"   maxChars="10000"/>
   <copyField source="dc_format_s"        dest="dc_format_ti"        maxChars="100"/>
   <copyField source="dc_identifier_s"    dest="dc_identifier_ti"    maxChars="100"/>
   <copyField source="dc_publisher_s"     dest="dc_publisher_ti"     maxChars="1000"/>
