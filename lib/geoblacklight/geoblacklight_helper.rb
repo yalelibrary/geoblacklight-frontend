@@ -200,18 +200,15 @@ module GeoblacklightHelper
     end
   end
 
-  # YJ added on 10/03/2023 3:06PM 
-  def description_display(args)
+  
+  # YJ added on 10/03/2023 3:06PM for displaying multiple values in their own lines.
+  def multiple_value_display(args)
     values = args[:value]
-    links = values.map do |value|
-      subject_heading_fields = []
-    
-     
-        subject_heading_fields << value
-        
-     
+    multiple_value = values.map do |value|
+      concatenate_values = []
+        concatenate_values << value
     end
-    safe_join(links, "<br />".html_safe)
+    safe_join(multiple_value, "<br />".html_safe)
   end
 
   # YJ added on 10/03/2023 2:20PM 
