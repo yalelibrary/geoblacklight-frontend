@@ -110,6 +110,17 @@ module GeoblacklightHelper
   end
 
   ##
+  # YJ created on January 28, 2024 7:03AM for dispalying English translation when mouse over ENG icon.
+  def geoblacklight_english_icon(name, **args)
+    icon_name = name ? name.to_s.parameterize : 'none'
+    begin
+      blacklight_english_icon(icon_name, **args)
+    rescue Blacklight::Exceptions::IconNotFound
+      tag.span class: 'icon-missing geoblacklight-none'
+    end
+  end
+
+  ##
   # Renders an unique array of search links based off of terms
   # passed in using the facet parameter
   #

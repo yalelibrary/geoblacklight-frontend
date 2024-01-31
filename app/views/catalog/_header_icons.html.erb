@@ -1,3 +1,11 @@
+<%# YJ added on 01/28/2024 7:10 AM for ChatGPT translation to English
+    if (language.eql? "English"), no translate needed. english_title is NA(not apply), otherwise translated in English.
+    This is assigned in app/models/concerns/geoblacklight/solr_document.rb
+    Display English icon on list page.
+%>
+<% if document.english_title != 'NA' -%>
+  <%= geoblacklight_english_icon(document[Settings.FIELDS.TITLE], classes: 'svg_tooltip') %>
+<% end -%>
 <%= geoblacklight_icon(document[Settings.FIELDS.GEOM_TYPE], classes: 'svg_tooltip') %>
 <%= geoblacklight_icon(document[Settings.FIELDS.PROVENANCE], classes: 'svg_tooltip') %>
 <%= geoblacklight_icon(document[Settings.FIELDS.RIGHTS], classes: 'svg_tooltip') %>

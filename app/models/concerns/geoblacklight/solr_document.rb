@@ -127,6 +127,24 @@ module Geoblacklight
     end
 # End of YJ updates    
 
+##
+# YJ created on January 28, 2024 6:46 AM for dispalying English translation when mouse over ENG icon.
+    def english_title
+      original_title = nil
+      original_title = fetch(Settings.FIELDS.TITLE, '')
+      language = fetch(Settings.FIELDS.LANGUAGE, '')
+      # NA means "not apply"
+      if (language.eql? "English")
+        return "NA"
+      # else
+      #   #original_title = "Karta metamorficheskikh fat︠s︡iĭ Antarktidy, 1978 Map of metamorphic facies of Antarctica / [cartographic material] ="
+      #   #client = OpenAI::Client.new(access_token: 'YOUR_API_KEY')
+      #   # Connect from geoblacklight-app/app/services/chatgpt_service.rb
+      #   client = ChatgptService.connection
+      #   # Translate to English
+      #   return ChatgptService.translate_to_english(client, original_title)
+      end
+    end
 
     def wxs_identifier
       fetch(Settings.FIELDS.WXS_IDENTIFIER, '')
